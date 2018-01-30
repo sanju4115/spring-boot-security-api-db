@@ -1,6 +1,6 @@
-package com.techprimers.security.securitydbexample.repository;
+package com.justcredo.security.securitydbexample.repository;
 
-import com.techprimers.security.securitydbexample.model.Users;
+import com.justcredo.security.securitydbexample.model.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

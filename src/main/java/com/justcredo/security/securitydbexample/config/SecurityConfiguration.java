@@ -1,7 +1,7 @@
-package com.techprimers.security.securitydbexample.config;
+package com.justcredo.security.securitydbexample.config;
 
-import com.techprimers.security.securitydbexample.repository.UsersRepository;
-import com.techprimers.security.securitydbexample.service.CustomUserDetailsService;
+import com.justcredo.security.securitydbexample.service.CustomUserDetailsService;
+import com.justcredo.security.securitydbexample.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -19,8 +19,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 
+    private final CustomUserDetailsService userDetailsService;
+
     @Autowired
-    private CustomUserDetailsService userDetailsService;
+    public SecurityConfiguration(CustomUserDetailsService userDetailsService) {
+        this.userDetailsService = userDetailsService;
+    }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -32,13 +36,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
-        http.csrf().disable();
         http.authorizeRequests()
-                .antMatchers("**/secured/**").authenticated()
-                .anyRequest().permitAll()
+                .antMatchers("**/secured/**").fullyAuthenticated()
                 .and()
-                .formLogin().permitAll();
+                .httpBasic()
+                .and()
+                .csrf().disable();
+
+        //http.csrf().disable();
+        //http.authorizeRequests()
+        //       .antMatchers("**/secured/**").authenticated()
+        //        .anyRequest().permitAll()
+        //        .and()
+        //        .formLogin().permitAll();
     }
 
     private PasswordEncoder getPasswordEncoder() {

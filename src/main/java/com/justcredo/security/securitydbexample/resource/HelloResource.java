@@ -1,4 +1,4 @@
-package com.techprimers.security.securitydbexample.resource;
+package com.justcredo.security.securitydbexample.resource;
 
 
 import org.springframework.security.access.prepost.PreAuthorize;

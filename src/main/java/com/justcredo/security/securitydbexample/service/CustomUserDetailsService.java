@@ -1,8 +1,8 @@
-package com.techprimers.security.securitydbexample.service;
+package com.justcredo.security.securitydbexample.service;
 
-import com.techprimers.security.securitydbexample.model.CustomUserDetails;
-import com.techprimers.security.securitydbexample.model.Users;
-import com.techprimers.security.securitydbexample.repository.UsersRepository;
+import com.justcredo.security.securitydbexample.model.CustomUserDetails;
+import com.justcredo.security.securitydbexample.model.Users;
+import com.justcredo.security.securitydbexample.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

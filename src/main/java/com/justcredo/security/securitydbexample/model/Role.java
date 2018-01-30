@@ -1,4 +1,4 @@
-package com.techprimers.security.securitydbexample.model;
+package com.justcredo.security.securitydbexample.model;
 
 import javax.persistence.*;
 

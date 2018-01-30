@@ -1,4 +1,4 @@
-package com.techprimers.security.securitydbexample;
+package com.justcredo.security.securitydbexample;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
